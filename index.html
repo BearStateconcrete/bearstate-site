@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bear State Concrete Construction — Premium Concrete in Inland Empire & Orange County</title>
+<meta name="description" content="Premium concrete craftsmanship for high-end homes and builders across the Inland Empire and Orange County. Driveways, patios, foundations, stamped concrete, and site prep." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/jpeg" href="public/logo-circle.jpg" />
+<style>
+  :root {
+    --red: #A8201A;
+    --red-dark: #7A1612;
+    --red-deep: #4A0E0B;
+    --gold: #F2B90C;
+    --gold-warm: #E0A800;
+    --bone: #F4F0E8;
+    --concrete-50: #ECE7DD;
+    --concrete-100: #D9D2C3;
+    --concrete-200: #B8AF9E;
+    --concrete-400: #7A7468;
+    --concrete-600: #3F3B33;
+    --concrete-800: #1F1D19;
+    --ink: #15140F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bone);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .display { font-family: 'Archivo Black', 'Archivo', sans-serif; letter-spacing: -0.01em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .container { max-width: 1440px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+
+  /* concrete texture using stacked gradients + noise */
+  .concrete-bg {
+    background-color: var(--concrete-100);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(0,0,0,0.06) 0%, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.05) 0%, transparent 40%),
+      radial-gradient(circle at 50% 80%, rgba(255,255,255,0.4) 0%, transparent 35%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0.15 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+  }
+  .concrete-dark {
+    background-color: var(--concrete-800);
+    background-image:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03) 0%, transparent 50%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* TOP NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(244, 240, 232, 0.85);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.2s;
+  }
+  .nav-inner {
+    max-width: 1440px; margin: 0 auto; padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { height: 40px; width: auto; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.02em; transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-cta {
+    background: var(--red); color: white !important; padding: 10px 20px;
+    border-radius: 2px; font-weight: 700 !important; font-size: 13px !important;
+    letter-spacing: 0.06em !important; text-transform: uppercase;
+    transition: background 0.15s;
+  }
+  .nav-cta:hover { background: var(--red-dark); color: white !important; }
+  @media (max-width: 900px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 28px; font-weight: 700; font-size: 14px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.15s; border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-primary { background: var(--red); color: white; }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: var(--gold-warm); }
+  .btn-outline {
+    background: transparent; color: var(--ink);
+    border: 2px solid var(--ink);
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--bone); }
+  .btn-outline-light {
+    background: transparent; color: var(--bone);
+    border: 2px solid var(--bone);
+  }
+  .btn-outline-light:hover { background: var(--bone); color: var(--ink); }
+  .btn .arrow { transition: transform 0.15s; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  /* SECTION SCAFFOLDING */
+  section { position: relative; }
+  .section-pad { padding: 120px 0; }
+  @media (max-width: 720px) { .section-pad { padding: 80px 0; } }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--red); display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; font-weight: 500;
+  }
+  .eyebrow::before {
+    content: ''; display: block; width: 32px; height: 2px; background: var(--red);
+  }
+  .eyebrow.gold { color: var(--gold); }
+  .eyebrow.gold::before { background: var(--gold); }
+  .eyebrow.light { color: var(--concrete-200); }
+  .eyebrow.light::before { background: var(--concrete-200); }
+
+  h1.headline { font-size: clamp(48px, 8vw, 120px); line-height: 0.92; text-transform: uppercase; }
+  h2.section-title { font-size: clamp(36px, 5.5vw, 72px); line-height: 0.95; text-transform: uppercase; }
+  h3.card-title { font-size: clamp(22px, 2.4vw, 32px); line-height: 1.05; text-transform: uppercase; }
+
+  /* HERO V1 - Full bleed photo */
+  .hero-v1 {
+    min-height: 100vh; position: relative;
+    background: var(--ink);
+    color: var(--bone);
+    display: flex; align-items: flex-end;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+  .hero-v1-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(180deg, rgba(15,14,12,0.55) 0%, rgba(15,14,12,0.4) 40%, rgba(15,14,12,0.95) 100%),
+      url('public/projects/pool-deck.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-v1 .container { position: relative; z-index: 2; padding-bottom: 80px; padding-top: 60px; width: 100%; }
+  .hero-v1 .hero-grid {
+    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end;
+  }
+  @media (max-width: 900px) { .hero-v1 .hero-grid { grid-template-columns: 1fr; } }
+  .hero-v1 h1 .word-red { color: var(--red); }
+  .hero-v1 h1 .word-gold { color: var(--gold); }
+  .hero-v1 .hero-sub {
+    margin-top: 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5;
+    max-width: 540px; color: var(--concrete-100);
+  }
+  .hero-v1 .hero-actions { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-v1 .hero-meta {
+    display: grid; grid-template-columns: repeat(3, auto); gap: 48px;
+    padding-top: 32px; margin-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  @media (max-width: 720px) { .hero-v1 .hero-meta { gap: 24px; grid-template-columns: 1fr 1fr; } }
+  .hero-v1 .hero-meta .stat-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(36px, 4vw, 56px); color: var(--gold); line-height: 1;
+  }
+  .hero-v1 .hero-meta .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--concrete-200); margin-top: 8px;
+  }
+  .hero-v1-mark {
+    width: 280px; height: 280px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(242,185,12,0.3);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .hero-v1-mark img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; }
+  @media (max-width: 900px) { .hero-v1-mark { display: none; } }
+
+  /* HERO V2 - Editorial split */
+  .hero-v2 {
+    min-height: 100vh; padding-top: 80px;
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    background: var(--bone);
+  }
+  @media (max-width: 900px) { .hero-v2 { grid-template-columns: 1fr; } }
+  .hero-v2-left {
+    padding: 80px 64px; display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid rgba(0,0,0,0.08);
+  }
+  @media (max-width: 720px) { .hero-v2-left { padding: 60px 24px; } }
+  .hero-v2-left h1 .accent { color: var(--red); }
+  .hero-v2-left h1 .underline {
+    background: linear-gradient(180deg, transparent 70%, var(--gold) 70%);
+    padding: 0 6px;
+  }
+  .hero-v2-left .hero-sub { margin-top: 32px; font-size: 19px; line-height: 1.55; max-width: 580px; color: var(--concrete-600); }
+  .hero-v2-left .hero-actions { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-v2-right {
+    position: relative; min-height: 600px;
+    background: var(--concrete-800);
+    overflow: hidden;
+    background-image:
+      linear-gradient(135deg, rgba(15,14,12,0.3) 0%, rgba(15,14,12,0.5) 100%),
+      url('public/projects/travertine-patio-1.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-v2-right::before { content: none; }
+  .hero-v2-right::after { content: none; }
+  .hero-v2-mark {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  .hero-v2-mark img {
+    width: 75%; max-width: 480px;
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
+  }
+  .hero-v2-corner {
+    position: absolute; bottom: 32px; left: 32px; z-index: 2;
+    color: var(--bone);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .hero-v2-corner .label { color: var(--gold); }
+
+  /* HERO V3 - Oversized typographic */
+  .hero-v3 {
+    min-height: 100vh; padding-top: 100px; padding-bottom: 60px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative;
+  }
+  .hero-v3 .container { width: 100%; }
+  .hero-v3-tag {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px; flex-wrap: wrap;
+  }
+  .hero-v3-tag img { height: 48px; }
+  .hero-v3-tag .est {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--concrete-400);
+  }
+  .hero-v3-headline {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(60px, 14vw, 220px);
+    line-height: 0.85; text-transform: uppercase;
+    margin-bottom: 32px;
+    color: var(--ink);
+  }
+  .hero-v3-headline .accent { color: var(--red); }
+  .hero-v3-headline .outline {
+    -webkit-text-stroke: 2px var(--ink);
+    color: transparent;
+  }
+  .hero-v3-bottom {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    margin-top: 64px; padding-top: 32px;
+    border-top: 2px solid var(--ink);
+  }
+  @media (max-width: 720px) { .hero-v3-bottom { grid-template-columns: 1fr; gap: 32px; } }
+  .hero-v3-bottom .hero-sub { font-size: 18px; line-height: 1.55; color: var(--concrete-600); max-width: 540px; }
+  .hero-v3-bottom .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+
+  /* MARQUEE */
+  .marquee {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 24px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .marquee-track {
+    display: flex; gap: 60px;
+    animation: marquee 40s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  .marquee-item {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 32px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 60px;
+  }
+  .marquee-item .star { color: var(--gold); font-size: 24px; }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SERVICES */
+  .services-section { background: var(--bone); }
+  .services-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: end; margin-bottom: 80px;
+  }
+  @media (max-width: 900px) { .services-header { grid-template-columns: 1fr; gap: 24px; } }
+  .services-header p { font-size: 18px; line-height: 1.55; color: var(--concrete-600); max-width: 480px; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--ink);
+  }
+  .service-card {
+    grid-column: span 2;
+    padding: 40px 32px 48px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    background: var(--bone);
+    transition: background 0.2s;
+    position: relative;
+    cursor: pointer;
+    min-height: 380px;
+    display: flex; flex-direction: column;
+  }
+  .service-card:nth-child(4), .service-card:nth-child(5) {
+    grid-column: span 3;
+  }
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card, .service-card:nth-child(4), .service-card:nth-child(5) { grid-column: span 1; }
+  }
+  .service-card:hover { background: var(--ink); color: var(--bone); }
+  .service-card:hover .service-num { color: var(--gold); }
+  .service-card:hover .service-arrow { color: var(--gold); transform: translate(4px, -4px); }
+  .service-card:hover .service-desc { color: var(--concrete-200); }
+  .service-card:hover .service-tags span { border-color: var(--concrete-400); color: var(--concrete-100); }
+  .service-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.15em;
+    color: var(--red); margin-bottom: 24px;
+    transition: color 0.2s;
+  }
+  .service-arrow {
+    position: absolute; top: 36px; right: 32px;
+    font-size: 20px; color: var(--ink); transition: all 0.2s;
+  }
+  .service-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 28px; line-height: 1; text-transform: uppercase;
+    margin-bottom: 16px; flex-grow: 0;
+  }
+  .service-desc { font-size: 15px; line-height: 1.55; color: var(--concrete-600); transition: color 0.2s; flex-grow: 1; }
+  .service-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 24px;
+  }
+  .service-tags span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 9px; border: 1px solid rgba(0,0,0,0.15);
+    color: var(--concrete-600);
+    transition: all 0.2s;
+  }
+
+  /* PROJECTS */
+  .projects-section { background: var(--concrete-50); padding: 120px 0; border-top: 1px solid rgba(0,0,0,0.06); }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(12, 1fr);
+    gap: 16px; margin-top: 60px;
+  }
+  .project-card {
+    position: relative; overflow: hidden;
+    background: var(--concrete-200);
+    aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+  .project-card.large { grid-column: span 7; aspect-ratio: 16/10; }
+  .project-card.medium { grid-column: span 5; aspect-ratio: 16/10; }
+  .project-card.small { grid-column: span 4; aspect-ratio: 4/3; }
+  @media (max-width: 900px) {
+    .project-card.large, .project-card.medium, .project-card.small { grid-column: span 12; aspect-ratio: 4/3; }
+  }
+  .project-card .placeholder-bg {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(135deg,
+        var(--concrete-100) 0px, var(--concrete-100) 12px,
+        var(--concrete-200) 12px, var(--concrete-200) 24px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .project-card .placeholder-label {
+    background: var(--ink); color: var(--bone);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  .project-card .project-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 24px;
+    background: linear-gradient(0deg, rgba(15,14,12,0.85) 0%, transparent 100%);
+    color: var(--bone);
+    transform: translateY(8px); opacity: 0.95;
+    transition: all 0.2s;
+  }
+  .project-card:hover .project-info { transform: translateY(0); opacity: 1; }
+  .project-card .project-info .loc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .project-card .project-info .name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px; text-transform: uppercase; line-height: 1;
+  }
+
+  /* PROCESS */
+  .process-section { background: var(--ink); color: var(--bone); padding: 140px 0; position: relative; overflow: hidden; }
+  .process-section::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence baseFrequency='0.7' numOctaves='3'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 0.95 0 0 0 0 0.85 0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    pointer-events: none;
+  }
+  .process-section .container { position: relative; z-index: 2; }
+  .process-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; margin-top: 80px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  @media (max-width: 900px) { .process-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .process-grid { grid-template-columns: 1fr; } }
+  .process-step {
+    padding: 48px 32px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .process-step:last-child { border-right: none; }
+  @media (max-width: 900px) {
+    .process-step:nth-child(2) { border-right: none; }
+    .process-step:nth-child(1), .process-step:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.15); }
+  }
+  .process-step .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 64px; line-height: 1;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .process-step h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px; text-transform: uppercase; line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .process-step p { font-size: 15px; line-height: 1.55; color: var(--concrete-200); }
+
+  /* ABOUT */
+  .about-section { background: var(--bone); padding: 140px 0; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+  .about-img {
+    aspect-ratio: 4/5;
+    background-image: url('public/projects/firepit-bench.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; overflow: hidden;
+  }
+  .about-img-label {
+    position: absolute; bottom: 20px; left: 20px;
+    background: var(--ink); color: var(--bone);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  .about-content h2 { margin-bottom: 32px; }
+  .about-content p { font-size: 18px; line-height: 1.55; color: var(--concrete-600); margin-bottom: 20px; }
+  .about-content p strong { color: var(--ink); font-weight: 600; }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 48px;
+    padding-top: 40px; border-top: 2px solid var(--ink);
+  }
+  .about-stats .num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 56px; line-height: 1; color: var(--red);
+  }
+  .about-stats .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--concrete-600); margin-top: 8px;
+  }
+
+  /* SERVICE AREA */
+  .area-section { background: var(--red); color: var(--bone); padding: 100px 0; position: relative; overflow: hidden; }
+  .area-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .area-grid { grid-template-columns: 1fr; } }
+  .area-grid h2 .accent { color: var(--gold); }
+  .area-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin-top: 32px;
+  }
+  .area-list li {
+    list-style: none;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .area-list li::before {
+    content: '◆'; color: var(--gold); font-size: 12px;
+  }
+  .area-counties {
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .area-counties .county {
+    padding: 32px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(0,0,0,0.15);
+  }
+  .area-counties .county-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 32px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .area-counties .county-desc { font-size: 15px; line-height: 1.5; color: var(--bone); opacity: 0.9; }
+
+  /* CONTACT FORM */
+  .contact-section { background: var(--concrete-50); padding: 140px 0; border-top: 1px solid rgba(0,0,0,0.06); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px;
+  }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
+  .contact-info h2 { margin-bottom: 24px; }
+  .contact-info p { font-size: 18px; line-height: 1.55; color: var(--concrete-600); margin-bottom: 40px; }
+  .contact-blocks { display: flex; flex-direction: column; gap: 24px; }
+  .contact-block { padding: 24px; background: var(--bone); border-left: 4px solid var(--red); }
+  .contact-block .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--concrete-400); margin-bottom: 8px;
+  }
+  .contact-block .val {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px; color: var(--ink); text-transform: uppercase;
+    word-break: break-word;
+  }
+  .contact-block a { color: var(--ink); text-decoration: none; }
+  .contact-block a:hover { color: var(--red); }
+
+  .quote-form {
+    background: var(--bone);
+    padding: 48px;
+    border-top: 4px solid var(--red);
+  }
+  @media (max-width: 720px) { .quote-form { padding: 32px 24px; } }
+  .quote-form h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 28px; text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  .form-field { display: flex; flex-direction: column; }
+  .form-field.full { grid-column: 1 / -1; }
+  .form-field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--concrete-400); margin-bottom: 6px;
+  }
+  .form-field input, .form-field select, .form-field textarea {
+    border: none; border-bottom: 2px solid var(--ink);
+    background: transparent; padding: 10px 0;
+    font-family: 'Inter', sans-serif; font-size: 16px;
+    color: var(--ink); outline: none;
+    transition: border-color 0.15s;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+    border-color: var(--red);
+  }
+  .form-field textarea { resize: vertical; min-height: 100px; }
+  .form-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 24px 0 32px; }
+  @media (max-width: 600px) { .form-checks { grid-template-columns: 1fr; } }
+  .form-check {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.15);
+    cursor: pointer;
+    font-size: 14px; font-weight: 500;
+    transition: all 0.15s;
+  }
+  .form-check:hover { border-color: var(--ink); }
+  .form-check input { accent-color: var(--red); }
+  .form-check.checked { border-color: var(--red); background: rgba(168,32,26,0.05); }
+  .form-success {
+    padding: 32px; background: var(--ink); color: var(--bone);
+    border-left: 4px solid var(--gold);
+    margin-top: 16px;
+  }
+  .form-success .display { font-size: 24px; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; }
+
+  /* FOOTER */
+  .footer { background: var(--ink); color: var(--bone); padding: 80px 0 40px; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    margin-bottom: 64px;
+  }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+  @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-brand img { height: 56px; margin-bottom: 24px; filter: brightness(1.1); }
+  .footer-brand p { font-size: 14px; line-height: 1.55; color: var(--concrete-200); max-width: 320px; }
+  .footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: var(--concrete-100); text-decoration: none; font-size: 14px; transition: color 0.15s; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--concrete-400);
+  }
+
+  /* visually hidden hero variants */
+  .hero-hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <img src="public/logo-circle.jpg" alt="Bear State Concrete" />
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <span class="display" style="font-size:14px;color:var(--red);letter-spacing:0;">BEAR STATE</span>
+        <span class="mono" style="font-size:9px;letter-spacing:0.15em;color:var(--concrete-400);margin-top:3px;">CONCRETE CONSTRUCTION INC.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Recent Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="tel:7142991630" class="mono" style="font-size:13px;color:var(--ink);">714.299.1630</a>
+      <a href="#quote" class="nav-cta">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<!-- HERO V1: Full-bleed dark photo style -->
+<section class="hero-v1" id="hero-v1">
+  <div class="hero-v1-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow gold">Inland Empire · Orange County · Est. 2016</div>
+        <h1 class="display headline">
+          Concrete<br/>
+          built like it<br/>
+          <span class="word-red">should</span> <span class="word-gold">last.</span>
+        </h1>
+        <p class="hero-sub">
+          Bear State Concrete Construction crafts driveways, patios, foundations, and stamped finishes for homeowners and builders who refuse to settle for ordinary work.
+        </p>
+        <div class="hero-actions">
+          <a href="#quote" class="btn btn-gold">Request a quote <span class="arrow">→</span></a>
+          <a href="#work" class="btn btn-outline-light">See recent work</a>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <div class="stat-num">10<span style="color:var(--red);">+</span></div>
+            <div class="stat-label">Years pouring</div>
+          </div>
+          <div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Counties served</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Owner on-site</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-v1-mark">
+        <img src="public/logo-circle.jpg" alt="Bear State seal" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO V2: Editorial split -->
+<section class="hero-v2 hero-hidden" id="hero-v2">
+  <div class="hero-v2-left">
+    <div class="eyebrow">Concrete construction · Est. 2016</div>
+    <h1 class="display headline">
+      Foundations,<br/>
+      finishes &amp;<br/>
+      <span class="underline">flatwork</span> done<br/>
+      <span class="accent">right.</span>
+    </h1>
+    <p class="hero-sub">
+      A decade of premium concrete craftsmanship across the Inland Empire and Orange County. We pour for homeowners and builders who notice the difference.
+    </p>
+    <div class="hero-actions">
+      <a href="#quote" class="btn btn-primary">Request a quote <span class="arrow">→</span></a>
+      <a href="tel:7142991630" class="btn btn-outline">Call 714.299.1630</a>
+    </div>
+  </div>
+  <div class="hero-v2-right">
+    <div class="hero-v2-corner">
+      <span class="label">★</span> Bear State Concrete Construction Inc.
+    </div>
+  </div>
+</section>
+
+<!-- HERO V3: Oversized typographic -->
+<section class="hero-v3 hero-hidden" id="hero-v3">
+  <div class="container">
+    <div class="hero-v3-tag">
+      <img src="public/logo-circle.jpg" alt="Bear State seal" />
+      <div>
+        <div class="display" style="font-size:18px;color:var(--ink);text-transform:uppercase;letter-spacing:0;">Bear State Concrete</div>
+        <div class="est">Est. 2016 · Inland Empire / Orange County</div>
+      </div>
+    </div>
+    <h1 class="hero-v3-headline">
+      Pour it<br/>
+      <span class="accent">heavy.</span><br/>
+      <span class="outline">Finish it</span> right.
+    </h1>
+    <div class="hero-v3-bottom">
+      <p class="hero-sub">
+        Premium concrete craftsmanship for the homeowners and builders of Southern California — driveways, patios, foundations and stamped finishes that hold their line for the long haul.
+      </p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-primary">Get a quote <span class="arrow">→</span></a>
+        <a href="#work" class="btn btn-outline">See work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="marquee-item">DRIVEWAYS<span class="star">★</span>PATIOS &amp; WALKWAYS<span class="star">★</span>FOUNDATIONS &amp; SLABS<span class="star">★</span>STAMPED CONCRETE<span class="star">★</span>SITE PREP &amp; EXCAVATION<span class="star">★</span></div>
+    <div class="marquee-item">DRIVEWAYS<span class="star">★</span>PATIOS &amp; WALKWAYS<span class="star">★</span>FOUNDATIONS &amp; SLABS<span class="star">★</span>STAMPED CONCRETE<span class="star">★</span>SITE PREP &amp; EXCAVATION<span class="star">★</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section section-pad" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="eyebrow">What we pour</div>
+        <h2 class="display section-title">Five trades.<br/>One standard.</h2>
+      </div>
+      <p>We keep our scope tight on purpose. Every job we take, we run from the first survey to the final saw cut — so the finish you specify is the finish you get.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-num">01 / SERVICE</div>
+        <h3 class="service-title">Driveways</h3>
+        <p class="service-desc">Hand-finished residential driveways engineered for vehicle loads, expansion, and Southern California sun. Broom, salt, troweled, or stamped finishes.</p>
+        <div class="service-tags"><span>Residential</span><span>Commercial</span><span>Re-pours</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-num">02 / SERVICE</div>
+        <h3 class="service-title">Patios &amp; Walkways</h3>
+        <p class="service-desc">Outdoor living surfaces that work as hard as your home. Custom layouts, integrated drainage, and tooled jointing that ages cleanly.</p>
+        <div class="service-tags"><span>Backyards</span><span>Pool decks</span><span>Pathways</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-num">03 / SERVICE</div>
+        <h3 class="service-title">Foundations &amp; Slabs</h3>
+        <p class="service-desc">Footings, post-tension, and structural slabs poured to spec. We work alongside your GC and engineer to keep schedule and grade on point.</p>
+        <div class="service-tags"><span>New build</span><span>ADUs</span><span>Additions</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-num">04 / SERVICE</div>
+        <h3 class="service-title">Stamped &amp; Decorative Concrete</h3>
+        <p class="service-desc">High-end finishes that read like stone, slate, or hand-cut tile — with the integrity of structural concrete underneath. Custom color hardeners and sealing on every job.</p>
+        <div class="service-tags"><span>Slate</span><span>Ashlar</span><span>Wood-plank</span><span>Custom color</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-arrow">↗</span>
+        <div class="service-num">05 / SERVICE</div>
+        <h3 class="service-title">Excavation &amp; Site Prep</h3>
+        <p class="service-desc">Demo, grading, sub-base, and form work — handled in-house so we own the result from dirt to finish. Single point of responsibility, no subcontractor surprises.</p>
+        <div class="service-tags"><span>Demo</span><span>Grading</span><span>Forming</span><span>Sub-base</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="work">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="eyebrow">Recent work</div>
+        <h2 class="display section-title">Pours we're<br/>proud of.</h2>
+      </div>
+      <p>A small selection of recent residential and builder projects across the IE and OC. Drop your own photos into these slots when you're ready.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card large">
+        <img src="public/projects/pool-deck.jpg" alt="Modern pool deck with concrete coping" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="project-info">
+          <div class="loc">Yorba Linda · OC</div>
+          <div class="name">Modern Pool Deck &amp; Coping</div>
+        </div>
+      </div>
+      <div class="project-card medium">
+        <img src="public/projects/travertine-patio-1.jpg" alt="Travertine patio with outdoor kitchen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="project-info">
+          <div class="loc">Eastvale · IE</div>
+          <div class="name">Travertine Patio &amp; Kitchen</div>
+        </div>
+      </div>
+      <div class="project-card small">
+        <img src="public/projects/foundation-forms.jpg" alt="Foundation form work" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="project-info">
+          <div class="loc">Anaheim · OC</div>
+          <div class="name">ADU Foundation</div>
+        </div>
+      </div>
+      <div class="project-card small">
+        <img src="public/projects/pickleball-1.jpg" alt="Backyard pickleball court" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="project-info">
+          <div class="loc">Tustin · OC</div>
+          <div class="name">Backyard Pickleball Court</div>
+        </div>
+      </div>
+      <div class="project-card small">
+        <img src="public/projects/turf-driveway.jpg" alt="Modern driveway with turf bands" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="project-info">
+          <div class="loc">Corona · IE</div>
+          <div class="name">Modern Driveway &amp; Walkway</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="eyebrow gold">How we work</div>
+        <h2 class="display section-title" style="color:var(--bone);">Four steps.<br/>No surprises.</h2>
+      </div>
+      <p style="color:var(--concrete-200);font-size:18px;line-height:1.55;max-width:480px;">
+        Honest scope, honest pricing, honest schedule. The job we quote is the job we pour — and the owner is on every site, every day.
+      </p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Walk &amp; Quote</h3>
+        <p>On-site consult to measure, scope, and talk finishes. You get a written, line-item quote within 48 hours.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Plan &amp; Permit</h3>
+        <p>We coordinate with your designer, GC, or city for permits and engineering. No surprises in front of the framers.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Pour &amp; Finish</h3>
+        <p>Demo, form, pour, and finish — handled by our crew with the owner on-site. Tooled joints, clean lines, sealed and cured.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Walk &amp; Warrant</h3>
+        <p>Final walk-through with you. Two-year written warranty on workmanship, and a phone call answered when you need us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="about-img-label">On site · Owner-led crew</div>
+      </div>
+      <div class="about-content">
+        <div class="eyebrow">A decade in</div>
+        <h2 class="display section-title">A small crew.<br/>A long memory.</h2>
+        <p>
+          Bear State Concrete Construction was started in <strong>2016</strong> on a simple idea: keep the crew small, the standards high, and the owner on every job site.
+        </p>
+        <p>
+          Ten years later, we still run that way. We don't sub the finish work, we don't pad the scope, and we don't take on more pours than we can lead in person. That's why builders keep our number on speed dial — and why homeowners refer us to their neighbors.
+        </p>
+        <div class="about-stats">
+          <div>
+            <div class="num">10</div>
+            <div class="lbl">Years in business</div>
+          </div>
+          <div>
+            <div class="num">2</div>
+            <div class="lbl">Counties served</div>
+          </div>
+          <div>
+            <div class="num">2yr</div>
+            <div class="lbl">Workmanship warranty</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="area-section">
+  <div class="container">
+    <div class="area-grid">
+      <div>
+        <div class="eyebrow gold">Where we pour</div>
+        <h2 class="display section-title">Inland Empire<br/>&amp; <span class="accent">Orange County.</span></h2>
+        <p style="font-size:18px;line-height:1.55;margin-top:24px;color:var(--bone);opacity:0.9;max-width:480px;">
+          Two counties, one crew. We keep our radius tight so we can stay accountable to every job.
+        </p>
+        <ul class="area-list">
+          <li>Riverside</li>
+          <li>Anaheim</li>
+          <li>Corona</li>
+          <li>Yorba Linda</li>
+          <li>Chino Hills</li>
+          <li>Tustin</li>
+          <li>Eastvale</li>
+          <li>Irvine</li>
+          <li>Ontario</li>
+          <li>Brea</li>
+          <li>Norco</li>
+          <li>Orange</li>
+        </ul>
+      </div>
+      <div class="area-counties">
+        <div class="county">
+          <div class="county-name">Inland Empire</div>
+          <div class="county-desc">Riverside &amp; San Bernardino corridor — from Eastvale to Redlands. Residential builds, foundations, and stamped flatwork.</div>
+        </div>
+        <div class="county">
+          <div class="county-name">Orange County</div>
+          <div class="county-desc">North &amp; central OC — Anaheim, Yorba Linda, Tustin, Irvine, and the surrounding cities. High-end residential and builder accounts.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="quote">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">Get in touch</div>
+        <h2 class="display section-title">Tell us about<br/>the project.</h2>
+        <p>Quick form, real reply. We'll get back within one business day to schedule a walk-through.</p>
+        <div class="contact-blocks">
+          <div class="contact-block">
+            <div class="lbl">Phone</div>
+            <div class="val"><a href="tel:7142991630">714.299.1630</a></div>
+          </div>
+          <div class="contact-block">
+            <div class="lbl">Email</div>
+            <div class="val" style="font-size:18px;"><a href="mailto:Hugo@BearStateConcrete.com">Hugo@BearStateConcrete.com</a></div>
+          </div>
+          <div class="contact-block">
+            <div class="lbl">Hours</div>
+            <div class="val">Mon–Sat · 7am – 6pm</div>
+          </div>
+        </div>
+      </div>
+      <div id="quote-form-mount"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="public/logo-horizontal.png" alt="Bear State Concrete Construction Inc." />
+        <p>Premium concrete craftsmanship for the homeowners and builders of the Inland Empire and Orange County. Established 2016.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Driveways</a></li>
+          <li><a href="#services">Patios &amp; Walkways</a></li>
+          <li><a href="#services">Foundations &amp; Slabs</a></li>
+          <li><a href="#services">Stamped Concrete</a></li>
+          <li><a href="#services">Site Prep</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#work">Recent Work</a></li>
+          <li><a href="#quote">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:7142991630">714.299.1630</a></li>
+          <li><a href="mailto:Hugo@BearStateConcrete.com">Hugo@BearStateConcrete.com</a></li>
+          <li>Inland Empire &amp; OC, CA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Bear State Concrete Construction Inc. — All rights reserved</div>
+      <div>Lic. # XXX-XXXXXX · Insured &amp; Bonded</div>
+    </div>
+  </div>
+</footer>
+
+<!-- React + Babel for tweaks panel + form interactivity -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+
+</body>
+</html>
