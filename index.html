@@ -145,11 +145,19 @@
   }
   .hero-v1-bg {
     position: absolute; inset: 0;
-    background-image:
-      linear-gradient(180deg, rgba(15,14,12,0.55) 0%, rgba(15,14,12,0.4) 40%, rgba(15,14,12,0.95) 100%),
-      url('public/projects/pool-deck.jpg');
+    overflow: hidden;
+  }
+  .hero-v1-bg::before {
+    content: ''; position: absolute; inset: -8%;
+    background-image: url('public/projects/hero-backyard-turf.jpg');
     background-size: cover;
     background-position: center;
+    transform: rotate(0deg);
+    transform-origin: center;
+  }
+  .hero-v1-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15,14,12,0.55) 0%, rgba(15,14,12,0.4) 40%, rgba(15,14,12,0.95) 100%);
   }
   .hero-v1 .container { position: relative; z-index: 2; padding-bottom: 80px; padding-top: 60px; width: 100%; }
   .hero-v1 .hero-grid {
@@ -661,7 +669,7 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow gold">Inland Empire · Orange County · Est. 2006</div>
+        <div class="eyebrow gold">Inland Empire · Orange County · Est. 2016</div>
         <h1 class="display headline">
           Concrete<br/>
           built like it<br/>
@@ -685,7 +693,7 @@
           </div>
           <div>
             <div class="stat-num">100%</div>
-            <div class="stat-label">Owner on-site</div>
+            <div class="stat-label">Lead on-site</div>
           </div>
         </div>
       </div>
@@ -699,7 +707,7 @@
 <!-- HERO V2: Editorial split -->
 <section class="hero-v2 hero-hidden" id="hero-v2">
   <div class="hero-v2-left">
-    <div class="eyebrow">Concrete construction · Est. 2006</div>
+    <div class="eyebrow">Concrete construction · Est. 2016</div>
     <h1 class="display headline">
       Foundations,<br/>
       finishes &amp;<br/>
@@ -728,7 +736,7 @@
       <img src="public/logo-circle.jpg" alt="Bear State seal" />
       <div>
         <div class="display" style="font-size:18px;color:var(--ink);text-transform:uppercase;letter-spacing:0;">Bear State Concrete</div>
-        <div class="est">Est. 2006 · Inland Empire / Orange County</div>
+        <div class="est">Est. 2016 · Inland Empire / Orange County</div>
       </div>
     </div>
     <h1 class="hero-v3-headline">
@@ -827,35 +835,35 @@
 
     <div class="projects-grid">
       <div class="project-card large">
-        <img src="public/projects/pool-deck.jpg" alt="Modern pool deck with concrete coping" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <img src="public/projects/pool-deck.jpg" alt="Modern pool deck with concrete coping" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.12) rotate(1deg);" />
         <div class="project-info">
           <div class="loc">Yorba Linda · OC</div>
           <div class="name">Modern Pool Deck &amp; Coping</div>
         </div>
       </div>
       <div class="project-card medium">
-        <img src="public/projects/travertine-patio-1.jpg" alt="Travertine patio with outdoor kitchen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <img src="public/projects/travertine-patio-1.jpg" alt="Travertine patio with outdoor kitchen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04) rotate(0deg);" />
         <div class="project-info">
           <div class="loc">Eastvale · IE</div>
           <div class="name">Travertine Patio &amp; Kitchen</div>
         </div>
       </div>
       <div class="project-card small">
-        <img src="public/projects/foundation-forms.jpg" alt="Foundation form work" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <img src="public/projects/adu-foundation-pour.jpg" alt="Large residential foundation pour" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
         <div class="project-info">
           <div class="loc">Anaheim · OC</div>
           <div class="name">ADU Foundation</div>
         </div>
       </div>
       <div class="project-card small">
-        <img src="public/projects/pickleball-1.jpg" alt="Backyard pickleball court" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <img src="public/projects/pickleball-1.jpg" alt="Backyard pickleball court" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.16) rotate(3deg);" />
         <div class="project-info">
           <div class="loc">Tustin · OC</div>
           <div class="name">Backyard Pickleball Court</div>
         </div>
       </div>
       <div class="project-card small">
-        <img src="public/projects/turf-driveway.jpg" alt="Modern driveway with turf bands" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <img src="public/projects/turf-driveway.jpg" alt="Modern driveway with turf bands" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.18) rotate(4deg);" />
         <div class="project-info">
           <div class="loc">Corona · IE</div>
           <div class="name">Modern Driveway &amp; Walkway</div>
@@ -874,7 +882,7 @@
         <h2 class="display section-title" style="color:var(--bone);">Four steps.<br/>No surprises.</h2>
       </div>
       <p style="color:var(--concrete-200);font-size:18px;line-height:1.55;max-width:480px;">
-        Honest scope, honest pricing, honest schedule. The job we quote is the job we pour — and the owner is on every site, every day.
+        Honest scope, honest pricing, honest schedule. The job we quote is the job we pour — with a lead on every site, every day.
       </p>
     </div>
 
@@ -892,12 +900,12 @@
       <div class="process-step">
         <div class="step-num">03</div>
         <h3>Pour &amp; Finish</h3>
-        <p>Demo, form, pour, and finish — handled by our crew with the owner on-site. Tooled joints, clean lines, sealed and cured.</p>
+        <p>Demo, form, pour, and finish — handled by our crew with a lead on-site. Tooled joints, clean lines, sealed and cured.</p>
       </div>
       <div class="process-step">
         <div class="step-num">04</div>
         <h3>Walk &amp; Warrant</h3>
-        <p>Final walk-through with you. Two-year written warranty on workmanship, and a phone call answered when you need us.</p>
+        <p>Final walk-through with you. One-year written warranty on workmanship, and a phone call answered when you need us.</p>
       </div>
     </div>
   </div>
@@ -908,16 +916,16 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img">
-        <div class="about-img-label">On site · Owner-led crew</div>
+        <div class="about-img-label">On site · Experienced crew</div>
       </div>
       <div class="about-content">
         <div class="eyebrow">Two decades in</div>
-        <h2 class="display section-title">A small crew.<br/>A long memory.</h2>
+        <h2 class="display section-title">Twenty years.<br/>Hands in the mud.</h2>
         <p>
-          Bear State Concrete Construction was started in <strong>2006</strong> on a simple idea: keep the crew small, the standards high, and the owner on every job site.
+          Bear State Concrete is built on <strong>a decade on cement crews</strong> — pouring everything from neighborhood sidewalks to foundations longer than a football field across Southern California. The trade was learned from the finishers who taught the finishers.
         </p>
         <p>
-          Twenty years later, we still run that way. We don't sub the finish work, we don't pad the scope, and we don't take on more pours than we can lead in person. That's why builders keep our number on speed dial — and why homeowners refer us to their neighbors.
+          Ten years ago, that experience went independent as <strong>Bear State Concrete Construction</strong>, on a simple idea: keep the crew small, the standards high, and a lead on every job site. A decade later, we still run that way. We don't sub the finish work, we don't pad the scope, and we don't take on more pours than we can lead in person — which is why builders keep our number on speed dial and homeowners refer us to their neighbors.
         </p>
         <div class="about-stats">
           <div>
@@ -929,7 +937,7 @@
             <div class="lbl">Counties served</div>
           </div>
           <div>
-            <div class="num">2yr</div>
+            <div class="num">1yr</div>
             <div class="lbl">Workmanship warranty</div>
           </div>
         </div>
@@ -1012,7 +1020,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="public/logo-horizontal.png" alt="Bear State Concrete Construction Inc." />
-        <p>Premium concrete craftsmanship for the homeowners and builders of the Inland Empire and Orange County. Established 2006.</p>
+        <p>Premium concrete craftsmanship for the homeowners and builders of the Inland Empire and Orange County. Established 2016.</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -1045,7 +1053,7 @@
     </div>
     <div class="footer-bottom">
       <div>© 2026 Bear State Concrete Construction Inc. — All rights reserved</div>
-      <div>Lic. # XXX-XXXXXX · Insured &amp; Bonded</div>
+      <div>Lic. # 1026654 · C-8 Concrete · Insured &amp; Bonded</div>
     </div>
   </div>
 </footer>
