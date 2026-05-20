@@ -1,1 +1,1 @@
-style: match SMS consent checkbox to original form style
+chore: remove temp old-index.html
