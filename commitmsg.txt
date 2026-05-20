@@ -1,1 +1,1 @@
-chore: remove temp old-index.html
+style: restore service checkboxes, remove dropdown
