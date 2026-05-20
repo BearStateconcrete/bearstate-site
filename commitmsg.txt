@@ -1,1 +1,1 @@
-fix: temporary mailto form action until n8n webhook live
+fix: real Formspree endpoint for lead intake
