@@ -1,1 +1,1 @@
-style: restore service checkboxes, remove dropdown
+fix: temporary mailto form action until n8n webhook live
