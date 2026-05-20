@@ -34,12 +34,12 @@
   .nav-cta:hover { background: var(--red-dark); }
 
   /* MAIN */
-  .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 140px 32px 80px; }
+  .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 140px 32px 80px; background: var(--bone); }
   .card {
     max-width: 620px; width: 100%;
-    background: var(--ink); color: var(--bone);
+    background: var(--concrete-50);
     padding: 64px 56px;
-    border-top: 4px solid var(--gold);
+    border-top: 4px solid var(--red);
     text-align: center;
   }
   @media (max-width: 720px) { .card { padding: 48px 28px; } }
@@ -48,23 +48,26 @@
     width: 56px; height: 56px; border-radius: 50%;
     background: var(--gold); display: flex; align-items: center; justify-content: center;
     margin: 0 auto 32px;
-    font-size: 24px;
+    font-size: 24px; color: white; font-weight: 900;
   }
   .eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px;
+    color: var(--red); margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
   }
+  .eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
+  .eyebrow::after { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
   h1 {
     font-family: 'Archivo Black', sans-serif;
     font-size: clamp(36px, 6vw, 56px);
     line-height: 0.95; text-transform: uppercase;
-    color: var(--bone); margin-bottom: 20px;
+    color: var(--ink); margin-bottom: 20px;
   }
   h1 span { color: var(--gold); }
   .subhead {
     font-size: 18px; line-height: 1.6;
-    color: var(--concrete-200); margin-bottom: 48px;
+    color: var(--concrete-600); margin-bottom: 48px;
   }
 
   /* NEXT STEPS */
@@ -72,33 +75,35 @@
   .next-steps-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px;
+    color: var(--red); margin-bottom: 20px;
+    border-top: 2px solid var(--ink); padding-top: 32px;
+    display: flex; align-items: center; gap: 12px;
   }
+  .next-steps-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
   .step {
     display: flex; align-items: flex-start; gap: 16px;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
   }
   .step-num {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 13px; color: var(--gold);
-    background: rgba(242,185,12,0.12);
+    font-size: 13px; color: var(--ink);
+    background: var(--gold);
     width: 28px; height: 28px; border-radius: 2px;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; margin-top: 1px;
   }
-  .step-text { font-size: 15px; line-height: 1.55; color: var(--concrete-100); }
+  .step-text { font-size: 15px; line-height: 1.55; color: var(--ink); }
 
   /* REASSURANCE */
   .reassurance {
-    background: rgba(255,255,255,0.04);
-    border-left: 3px solid var(--red);
+    background: var(--bone);
+    border-left: 4px solid var(--red);
     padding: 20px 24px; margin-bottom: 40px;
     text-align: left;
   }
-  .reassurance p { font-size: 14px; line-height: 1.6; color: var(--concrete-200); }
-  .reassurance a { color: var(--gold); text-decoration: none; }
+  .reassurance p { font-size: 14px; line-height: 1.6; color: var(--concrete-600); }
+  .reassurance a { color: var(--red); text-decoration: none; font-weight: 600; }
   .reassurance a:hover { text-decoration: underline; }
 
   /* BACK LINK */
@@ -109,7 +114,7 @@
     color: var(--concrete-400); text-decoration: none;
     transition: color 0.15s;
   }
-  .back-link:hover { color: var(--bone); }
+  .back-link:hover { color: var(--ink); }
 
   /* FOOTER */
   .footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 0; }
@@ -144,7 +149,7 @@
       <div class="next-steps-label">What happens next</div>
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-text">Hugo reviews your project details</div>
+        <div class="step-text">We review your project details</div>
       </div>
       <div class="step">
         <div class="step-num">2</div>

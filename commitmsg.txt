@@ -1,1 +1,1 @@
-feat: branded thank-you page for form submissions
+polish: thanks page styling matches site palette, removes founder name from steps
