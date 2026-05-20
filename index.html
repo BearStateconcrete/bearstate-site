@@ -1009,9 +1009,8 @@
           </div>
         </div>
       </div>
-      <form class="quote-form" action="https://formspree.io/f/mlgvgzrp" method="POST">
+      <form id="quote-form" class="quote-form" action="https://formspree.io/f/mlgvgzrp" method="POST">
         <input type="hidden" name="_subject" value="New Lead - Bear State Concrete Website">
-        <input type="hidden" name="_next" value="https://bearstateconcrete.com/thanks.html">
         <h3 class="display">Request a Quote</h3>
         <div class="form-row">
           <div class="form-field">
@@ -1117,6 +1116,39 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script type="text/babel" src="tweaks-panel.jsx"></script>
 <script type="text/babel" src="app.jsx"></script>
+
+<script>
+  const quoteForm = document.getElementById('quote-form');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = quoteForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+      try {
+        const formData = new FormData(quoteForm);
+        const response = await fetch(quoteForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          window.location.href = '/thanks.html';
+        } else {
+          const data = await response.json();
+          alert(data.error || 'Something went wrong. Please try again or call us directly.');
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+        }
+      } catch (err) {
+        alert('Network error. Please try again or call us directly at (714) 299-1630.');
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+      }
+    });
+  }
+</script>
 
 </body>
 </html>

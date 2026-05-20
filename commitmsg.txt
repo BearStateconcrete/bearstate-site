@@ -1,1 +1,1 @@
-polish: thanks page styling matches site palette, removes founder name from steps
+feat: AJAX form submission with branded redirect
