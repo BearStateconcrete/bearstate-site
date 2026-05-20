@@ -1,1 +1,1 @@
-fix: real Formspree endpoint for lead intake
+feat: branded thank-you page for form submissions

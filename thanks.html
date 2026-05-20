@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thanks — Bear State Concrete Construction</title>
+<meta name="description" content="Thank you for reaching out to Bear State Concrete Construction." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/jpeg" href="public/logo-circle.jpg" />
+<style>
+  :root {
+    --red: #A8201A; --red-dark: #7A1612;
+    --gold: #F2B90C;
+    --bone: #F4F0E8;
+    --concrete-50: #ECE7DD; --concrete-100: #D9D2C3;
+    --concrete-200: #B8AF9E; --concrete-400: #7A7468;
+    --concrete-600: #3F3B33; --concrete-800: #1F1D19;
+    --ink: #15140F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bone); color: var(--ink); -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+  .display { font-family: 'Archivo Black', 'Archivo', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* NAV */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(244,240,232,0.85); border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 1440px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { height: 40px; }
+  .nav-cta { background: var(--red); color: white; padding: 10px 20px; border-radius: 2px; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: background 0.15s; }
+  .nav-cta:hover { background: var(--red-dark); }
+
+  /* MAIN */
+  .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 140px 32px 80px; }
+  .card {
+    max-width: 620px; width: 100%;
+    background: var(--ink); color: var(--bone);
+    padding: 64px 56px;
+    border-top: 4px solid var(--gold);
+    text-align: center;
+  }
+  @media (max-width: 720px) { .card { padding: 48px 28px; } }
+
+  .check-mark {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--gold); display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 32px;
+    font-size: 24px;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 0.95; text-transform: uppercase;
+    color: var(--bone); margin-bottom: 20px;
+  }
+  h1 span { color: var(--gold); }
+  .subhead {
+    font-size: 18px; line-height: 1.6;
+    color: var(--concrete-200); margin-bottom: 48px;
+  }
+
+  /* NEXT STEPS */
+  .next-steps { text-align: left; margin-bottom: 48px; }
+  .next-steps-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px;
+  }
+  .step {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px; color: var(--gold);
+    background: rgba(242,185,12,0.12);
+    width: 28px; height: 28px; border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .step-text { font-size: 15px; line-height: 1.55; color: var(--concrete-100); }
+
+  /* REASSURANCE */
+  .reassurance {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--red);
+    padding: 20px 24px; margin-bottom: 40px;
+    text-align: left;
+  }
+  .reassurance p { font-size: 14px; line-height: 1.6; color: var(--concrete-200); }
+  .reassurance a { color: var(--gold); text-decoration: none; }
+  .reassurance a:hover { text-decoration: underline; }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--concrete-400); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: var(--bone); }
+
+  /* FOOTER */
+  .footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 0; }
+  .footer-inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--concrete-400); }
+  .footer-inner a { color: var(--concrete-400); text-decoration: none; }
+  .footer-inner a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="public/logo-circle.jpg" alt="Bear State Concrete" />
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <span class="display" style="font-size:14px;color:var(--red);letter-spacing:0;">BEAR STATE</span>
+        <span class="mono" style="font-size:9px;letter-spacing:0.15em;color:var(--concrete-400);margin-top:3px;">CONCRETE CONSTRUCTION INC.</span>
+      </div>
+    </a>
+    <a href="/#quote" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<main class="main">
+  <div class="card">
+    <div class="check-mark">✓</div>
+    <div class="eyebrow">Form received</div>
+    <h1 class="display">Thanks —<br/>we've <span>got it.</span></h1>
+    <p class="subhead">We'll be in touch within one business day to schedule a walk-through.</p>
+
+    <div class="next-steps">
+      <div class="next-steps-label">What happens next</div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Hugo reviews your project details</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">You'll get a call to set up a site visit</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">We'll walk through and provide your quote</div>
+      </div>
+    </div>
+
+    <div class="reassurance">
+      <p>Questions in the meantime? Call <a href="tel:7142991630">(714) 299-1630</a> or email <a href="mailto:Hugo@BearStateConcrete.com">Hugo@BearStateConcrete.com</a></p>
+    </div>
+
+    <a href="/" class="back-link">← Back to home</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2026 Bear State Concrete Construction Inc.</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <span>Lic. # 1026654 · C-8 Concrete</span>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
