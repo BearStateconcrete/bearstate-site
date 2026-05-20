@@ -1,1 +1,1 @@
-Update service area to SoCal
+feat: A2P 10DLC compliance - real opt-in form, privacy policy, terms of service
